@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyHub</title>
+<style>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+h1, img, button {
+  opacity: 0;
+  transform: translateY(-40px);
+  animation: drop 0.8s ease forwards;
+}
+h1 { animation-delay: 0.2s; font-size: 2.5rem; color: #cf2a53; }
+img { animation-delay: 0.4s; width: 280px; border-radius: 12px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+h2, img, button {
+  opacity: 0;
+  transform: translateY(-40px);
+  animation: drop 0.8s ease forwards;
+}
+h2 { animation-delay: 0.2s; font-size: 2.5rem; color: #003366; }
+button {
+  animation-delay: 0.6s;
+  margin-top: 1.5rem;
+  padding: 12px 28px;
+  font-size: 1rem;
+  background: #00bcd4;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+button:hover { background: #0097a7; }
+
+@keyframes drop {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+</head>
+<body>
+<h1>Welcome to StudyHub</h1>
+<h2>Udaan 2026 –@utkarshkushwaha99 🚀</h2>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCdRGnPHIM2_rFxWEjkutlGTMbaPf5zbCh_g&s" alt="Udaan Banner" />
+<button onclick="location.href='subjects.html'">Let's Study</button>
+<footer>
+  <p style="text-align: center; color: #177c5e; font-size: 0.9rem;">&copy; 2025 StudyHub. All rights reserved.</p>
+  <p style="text-align: center; color: #555; font-size: 0.8rem;">Created by utkarshkushwaha99 </p>
+</footer>
+<script>
+document.querySelectorAll('h1, h2, img, button').forEach((el, index) => {
+  el.style.animationDelay = `${index * 0.2}s`;
+});
+document.querySelectorAll('footer p').forEach((el, index) => {
+  el.style.animationDelay = `${(index + 3) * 0.2}s`;
+});
+document.querySelector('footer').style.opacity = '0';
+setTimeout(() => {
+  document.querySelector('footer').style.opacity = '1';
+}, 1000);
+document.querySelector('footer').style.transform = 'translateY(0)';
+document.querySelector('footer').style.animation = 'drop 0.8s ease forwards';
+document.querySelector('footer').style.animationDelay = '1.2s';   
+</script>
+<!-- Floating Telegram Icon -->
+<a href="https://t.me/utkarshkushwaha99" target="_blank" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" style="width: 50px; height: 50px; border-radius: 50%; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+</body>
+</html>
