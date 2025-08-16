@@ -2,6 +2,7 @@
 <title>gender-caste</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body {
   font-family: 'Segoe UI', sans-serif;
@@ -12,7 +13,8 @@ body {
   overflow-x: hidden;
   color: #003366;
 }
-header, h1, .grid, .card, iframe, video, input, p, button {
+
+header, h1, .grid, .card, iframe, input, p, button {
   opacity: 0;
   transform: translateY(-30px);
   animation: drop 0.7s ease forwards;
@@ -26,16 +28,11 @@ h1 { animation-delay: 0.2s; }
   border-radius: 12px;
   padding: 10px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  text-align: center;
+  cursor: pointer;
 }
-.card img { width: 100%; border-radius: 10px; cursor: pointer; }
-iframe, video {
-  animation-delay: 0.5s;
-  width: 90%;
-  max-width: 700px;
-  border-radius: 12px;
-  margin-top: 30px;
-  border: none;
-}
+.card img { width: 100%; border-radius: 10px; pointer-events: none; } 
+
 button, input {
   padding: 10px 20px;
   border-radius: 8px;
@@ -46,6 +43,7 @@ button, input {
   color: white;
 }
 button:hover { background: #0097a7; }
+
 @keyframes drop {
   to {
     opacity: 1;
@@ -63,25 +61,50 @@ function searchLectures() {
     card.style.display = title.includes(input) ? 'block' : 'none';
   });
 }
-function play(url) {
-  document.getElementById('player').innerHTML = `<video controls autoplay src="${url}"></video>`;
-}
-</script></head><body>
+</script>
+</head>
+
+<body>
+
 <h1>gender-caste</h1>
 <input type="text" id="search" placeholder="Search lecture..." onkeyup="searchLectures()" />
+
 <div class="grid">
-  <div class="card" data-title="lecture1"><img src="https://via.placeholder.com/300x180.png?text=Power Sharing+1" onclick="play('https://www.w3schools.com/html/mov_bbb.mp4')"><p>lecture1</p></div>
-  <div class="card" data-title="lecture2"><img src="https://via.placeholder.com/300x180.png?text=Power Sharing+2" onclick="play('https://www.w3schools.com/html/movie.mp4')"><p>lecture2</p></div>
-  <div class="card" data-title="lecture3"><img src="https://via.placeholder.com/300x180.png?text=Power Sharing+3" onclick="play('https://www.w3schools.com/html/mov_bbb.mp4')"><p>lecture2</p></div>
+  <div class="card" data-title="lecture1"
+       onclick="window.location.href='https://advancestreambot.onrender.com/watch/261709/main.mp4?hash=AgAD0x'">
+    <img src="https://stream.asmultiverse.com/dl/688f8d89b0031be76c77cf52" alt="lecture 1">
+    <p>Lecture 1</p>
+  </div>
+
+  <div class="card" data-title="lecture2"
+       onclick="window.location.href='https://advancestreambot.onrender.com/watch/261697/main.mp4?hash=AgADmx'">
+    <img src="https://stream.asmultiverse.com/dl/688f8d89b0031be76c77cf52" alt="lecture 2">
+    <p>Lecture 2</p>
+  </div>
+
+  <div class="card" data-title="lecture3"
+       onclick="window.location.href='https://advancestreambot.onrender.com/watch/261707/main.mp4?hash=AgADHh'">
+    <img src="https://stream.asmultiverse.com/dl/688f8d89b0031be76c77cf52" alt="lecture 3">
+    <p>Lecture 3</p>
+  </div>
 </div>
-<div id="player"></div>
+
 <h2>Notes:</h2>
-<iframe src="https://example.com/sample.pdf"></iframe>
+<iframe src="https://example.com/sample.pdf" style="width:90%;max-width:700px;height:500px;border:none;border-radius:12px;"></iframe>
+
 <footer>
   <p style="text-align: center; color: #177c5e; font-size: 0.9rem;">&copy; 2025 StudyHub. All rights reserved.</p>
-  <p style="text-align: center; color: #555; font-size: 0.8rem;">Created by utkarshkushwaha99 </p>
+  <p style="text-align: center; color: #555; font-size: 0.8rem;">Created by utkarshkushwaha99</p>
 </footer>
+
+<a href="https://t.me/utkarshkushwaha99" target="_blank"
+   style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
+       alt="Telegram" style="width:50px;height:50px;border-radius:50%;box-shadow:0 0 10px rgba(0,0,0,0.2);">
+</a>
+
 <script>
+// animation delay script
 document.querySelectorAll('h1, h2, img, button').forEach((el, index) => {
   el.style.animationDelay = `${index * 0.2}s`;
 });
@@ -94,9 +117,6 @@ setTimeout(() => {
 }, 1000);
 document.querySelector('footer').style.transform = 'translateY(0)';
 document.querySelector('footer').style.animation = 'drop 0.8s ease forwards';
-document.querySelector('footer').style.animationDelay = '1.2s';   
+document.querySelector('footer').style.animationDelay = '1.2s';
 </script>
-<a href="https://t.me/utkarshkushwaha99" target="_blank" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" style="width: 50px; height: 50px; border-radius: 50%; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
-</body>
-</html>
+</body></html>
