@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>My Assignment Project</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body { font-family: Arial, sans-serif; max-width:900px; margin:30px auto; padding:0 16px; }
+    h2 { color:#2c3e50; }
+    .card { border:1px solid #ddd; padding:16px; border-radius:8px; margin-top:20px; background:#f9f9f9; }
+    button, a.download {
+      padding:8px 12px; border-radius:6px; cursor:pointer;
+      background:#3498db; color:white; border:none; text-decoration:none;
+    }
+    button:hover, a.download:hover { background:#217dbb; }
+    iframe { width:100%; height:600px; border:1px solid #ccc; margin-top:12px; }
+    ul { padding-left:20px; }
+    li { margin-bottom:8px; }
+  </style>
+</head>
+<body>
+  <h2>📘 Assignment Project</h2>
+
+  <!-- Attached Assignment -->
+  <div class="card">
+    <p><strong>Attached Assignment:</strong></p>
+    <a class="download" href="assignment.pdf" download>⬇️ Download Assignment</a>
+    <h3>Preview:</h3>
+    <iframe src="assignment.pdf"></iframe>
+  </div>
+
+  <!-- Upload New Assignment (Local Demo like Option B) -->
+  <div class="card">
+    <h3>Upload New Assignment (Local Demo)</h3>
+    <label for="files">Select file(s):</label><br>
+    <input id="files" type="file" multiple accept=".pdf,.doc,.docx,.zip,.txt,.jpg,.png">
+
+    <h4>Selected files</h4>
+    <ul id="fileList">
+      <li><em>No file selected</em></li>
+    </ul>
+
+    <button id="saveBtn">Save locally</button>
+    <button id="clearBtn" style="margin-left:8px;">Clear list</button>
+  </div>
+
+  <script>
+    const input = document.getElementById('files');
+    const fileList = document.getElementById('fileList');
+    const saveBtn = document.getElementById('saveBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    let files = [];
+
+    input.addEventListener('change', (e) => {
+      files = Array.from(e.target.files);
+      renderList();
+    });
+
+    function renderList() {
+      fileList.innerHTML = '';
+      if (files.length === 0) {
+        fileList.innerHTML = '<li><em>No file selected</em></li>';
+        return;
+      }
+      files.forEach((f, i) => {
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${escapeHtml(f.name)}</strong> — ${(f.size/1024).toFixed(1)} KB
+                        <button style="margin-left:10px;" data-index="${i}">Download</button>`;
+        fileList.appendChild(li);
+      });
+    }
+
+    fileList.addEventListener('click', (e) => {
+      if (e.target.tagName === 'BUTTON') {
+        const idx = Number(e.target.dataset.index);
+        downloadFile(files[idx]);
+      }
+    });
+
+    saveBtn.addEventListener('click', () => {
+      if (files.length === 0) { alert('Choose some files first.'); return; }
+      files.forEach(downloadFile);
+    });
+
+    clearBtn.addEventListener('click', () => {
+      files = [];
+      input.value = '';
+      renderList();
+    });
+
+    function downloadFile(file) {
+      const url = URL.createObjectURL(file);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = file.name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function escapeHtml(text) {
+      return text.replace(/[&<>"']/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+    }
+  </script>
+</body>
+</html>
