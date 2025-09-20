@@ -70,7 +70,18 @@ function play(url) {
 <h1>metal-non_metals</h1>
 <input type="text" id="search" placeholder="Search lecture..." onkeyup="searchLectures()" />
 <div class="grid">
-  <div class="card" data-title="lecture1"><img src="https://via.placeholder.com/300x180.png?text=Atoms+1" onclick="play('http://65.21.183.36:5051/stream/6607590293/18491/main.mp4')"><p>lecture1</p></div>
+ <div class="card" data-title="lecture1">
+  <img src="https://via.placeholder.com/300x180.png?text=Atoms+1" 
+       onclick="play('http://65.21.183.36:5051/stream/6607590293/18491/main.mp4')">
+  <p>lecture1</p>
+</div>
+
+<script>
+  function play(url) {
+    window.open(url, "_blank"); // ✅ opens in new tab
+  }
+</script>
+
   <div class="card" data-title="lecture2"><img src="https://via.placeholder.com/300x180.png?text=Atoms+2" onclick="play('http://65.21.183.36:5051/stream/6607590293/18492/Carbon and Its Compounds 02 %3A Properties of Covalent Compoun.mp4')"><p>lecture2</p></div>
   <div class="card" data-title="lecture3"><img src="https://via.placeholder.com/300x180.png?text=Atoms+3" onclick="play('http://65.21.183.36:5051/stream/6607590293/18493/Carbon and Its Compounds 03 %3A Versatile Nature and Allotrope.mp4')"><p>lecture3</p></div>
 </div>
