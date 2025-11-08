@@ -59,6 +59,16 @@
       text-align: center;
       margin-bottom: 15px;
     }
+
+    #my-gif-element {
+  position: fixed; /* or position: absolute; */
+  bottom: 20px;    /* Moves the image 20px from the bottom */
+  left: 20px;     /* Moves the image 20px from the left */
+  margin: 10px;    /* Adds a 10px margin around the image */
+  width: 100px;    /* Optional: sets the width of the gif */
+  height: auto;    /* Optional: ensures the aspect ratio is maintained */
+}
+
     /* ---------- Dark/Light Mode Toggle (Bottom Right) ---------- */
     .mode-toggle {
       position: fixed;
@@ -491,7 +501,7 @@
      *         MOTIVATIONAL QUOTES & STREAK COUNTER
      ******************************************************/
     const motivationalQuotes = [
-       'भोसड़ीवाले पढाई करलो 🔥',
+       ' पढाई करलो 🔥',
     ];
     const quoteEl = document.getElementById("motivational-quote");
     const streakEl = document.getElementById("streak-counter");
@@ -557,5 +567,9 @@
       updateCountdown();
     });
   </script>
+  <img src="https://ezgif.com/images/loadcat.gif" style="width:48px;height:48px;" 
+    <img src="your-gif-file.gif" alt="reamining time" id="my-gif-element">
+
+
 </body>
 </html>
